@@ -2,15 +2,6 @@
 
 Timberr is a fully functional Furniture App Clone Developed using Flutter, Supabase and Getx State Management which is based on this [UI Design](https://www.figma.com/file/dTdGEtZoQd2uRZc8qS5xjr/Timberr?node-id=0%3A1).
 
-## Team Members 
-**Aditya R [Github](https://github.com/adityar224) [Twitter](https://twitter.com/Adityabolt22)**
-
-## How I Used Supabase
-- Used Supabase for email and password authentication along with email verification. 
-- Supabase database to store furniture product details and user details like favourite items, cart items, address and payment details and methods.
-- To regularly query the database for searching and filtering of furniture products.
-- Used Supabase Storage for storing the product images and also to store the user profile picture
-
 ## 🗃️ Database Schema
 
 <img src="images/database.png">
