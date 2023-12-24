@@ -9,7 +9,7 @@ import 'package:timberr/screens/product/product_screen.dart';
 class CartListTile extends StatelessWidget {
   final CartItem cartItem;
   final CartController _controller = Get.find();
-  CartListTile({Key? key, required this.cartItem}) : super(key: key);
+  CartListTile({super.key, required this.cartItem});
 
   void _productOnTap() {
     Get.to(

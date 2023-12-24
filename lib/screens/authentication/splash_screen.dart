@@ -10,7 +10,7 @@ import 'package:timberr/controllers/user_controller.dart';
 import 'package:timberr/screens/home.dart';
 
 class SplashScreen extends StatelessWidget {
-  SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({super.key});
   final HomeController _homeController = Get.find();
   final FavoritesController _favoritesController = Get.find();
   final CartController _cartController = Get.find();

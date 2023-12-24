@@ -4,7 +4,7 @@ import 'package:timberr/constants.dart';
 import 'package:timberr/widgets/cards/order_card.dart';
 
 class OrdersScreen extends StatelessWidget {
-  const OrdersScreen({Key? key}) : super(key: key);
+  const OrdersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ import 'package:timberr/screens/authentication/onboarding_welcome.dart';
 import 'package:timberr/screens/authentication/splash_screen.dart';
 
 class Wrapper extends StatefulWidget {
-  const Wrapper({Key? key}) : super(key: key);
+  const Wrapper({super.key});
 
   @override
   State<Wrapper> createState() => _WrapperState();

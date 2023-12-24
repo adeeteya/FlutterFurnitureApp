@@ -6,11 +6,11 @@ class CustomElevatedButton extends StatelessWidget {
   final String text;
   final double height;
   const CustomElevatedButton({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.text,
     this.height = 60,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

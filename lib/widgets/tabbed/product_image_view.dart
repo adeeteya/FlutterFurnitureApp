@@ -7,7 +7,7 @@ import 'package:timberr/controllers/product_page_controller.dart';
 class ProductImageView extends StatelessWidget {
   final List<String> imagesList;
   final ProductPageController _controller = Get.find();
-  ProductImageView({Key? key, required this.imagesList}) : super(key: key);
+  ProductImageView({super.key, required this.imagesList});
 
   @override
   Widget build(BuildContext context) {

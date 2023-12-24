@@ -6,7 +6,7 @@ import 'package:timberr/screens/profile/orders_screen.dart';
 import 'package:timberr/widgets/buttons/custom_elevated_button.dart';
 
 class OrderSuccessScreen extends StatelessWidget {
-  const OrderSuccessScreen({Key? key}) : super(key: key);
+  const OrderSuccessScreen({super.key});
 
   void _offToHome() {
     Get.back();
@@ -86,8 +86,7 @@ class OrderSuccessScreen extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: _offToHome,
                     style: OutlinedButton.styleFrom(
-                      primary: kOffBlack,
-                      side: const BorderSide(color: kOffBlack),
+                      foregroundColor: kOffBlack, side: const BorderSide(color: kOffBlack),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

@@ -7,7 +7,7 @@ import 'package:timberr/widgets/cards/payment_card_view.dart';
 import 'package:timberr/widgets/input/custom_input_box.dart';
 
 class AddPaymentScreen extends StatelessWidget {
-  AddPaymentScreen({Key? key}) : super(key: key);
+  AddPaymentScreen({super.key});
   final _formKey = GlobalKey<FormState>();
   final _controller = Get.put(AddPaymentController());
   void _addCard() {

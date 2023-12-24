@@ -9,13 +9,12 @@ class ProductReviewCard extends StatelessWidget {
   final String reviewDescription;
   final String profileImageUrl;
   const ProductReviewCard(
-      {Key? key,
+      {super.key,
       required this.reviewerName,
       required this.dateString,
       required this.ratingValue,
       required this.reviewDescription,
-      required this.profileImageUrl})
-      : super(key: key);
+      required this.profileImageUrl});
 
   @override
   Widget build(BuildContext context) {

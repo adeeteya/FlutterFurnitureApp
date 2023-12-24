@@ -17,7 +17,7 @@ class ProductScreen extends StatelessWidget {
   final _controller = Get.put(ProductPageController());
   final FavoritesController _favoriteController = Get.find();
   final CartController _cartController = Get.find();
-  ProductScreen({Key? key, required this.product}) : super(key: key);
+  ProductScreen({super.key, required this.product});
   void _toProductReviewScreen() {
     Get.to(() => const ProductReviewScreen());
   }

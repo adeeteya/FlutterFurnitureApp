@@ -4,7 +4,7 @@ import 'package:timberr/widgets/tabbed/bottom_navbar.dart';
 import 'package:timberr/widgets/tiles/notification_tile.dart';
 
 class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+  const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

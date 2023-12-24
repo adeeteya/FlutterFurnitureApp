@@ -7,7 +7,7 @@ import 'package:timberr/widgets/buttons/custom_elevated_button.dart';
 import 'package:timberr/widgets/tiles/cart_list_tile.dart';
 
 class CartScreen extends StatelessWidget {
-  CartScreen({Key? key}) : super(key: key);
+  CartScreen({super.key});
   final CartController _controller = Get.find();
 
   void _toCheckOutScreen() {

@@ -19,7 +19,7 @@ void main() async {
 }
 
 class TimberrApp extends StatelessWidget {
-  const TimberrApp({Key? key}) : super(key: key);
+  const TimberrApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class TimberrApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(color: Colors.white, elevation: 0),
         scaffoldBackgroundColor: Colors.white,
         textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(primary: kOffBlack),
+          style: TextButton.styleFrom(foregroundColor: kOffBlack),
         ),
       ),
       home: const Wrapper(),

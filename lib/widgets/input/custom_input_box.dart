@@ -14,7 +14,7 @@ class CustomInputBox extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool obscureText;
   const CustomInputBox({
-    Key? key,
+    super.key,
     required this.headerText,
     required this.hintText,
     this.textInputAction = TextInputAction.next,
@@ -25,7 +25,7 @@ class CustomInputBox extends StatefulWidget {
     this.maxLength,
     this.inputFormatters,
     this.obscureText = false,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomInputBox> createState() => _CustomInputBoxState();

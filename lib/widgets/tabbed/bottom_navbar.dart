@@ -8,7 +8,7 @@ import 'package:timberr/screens/profile/profile_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedPos;
-  const BottomNavBar({Key? key, required this.selectedPos}) : super(key: key);
+  const BottomNavBar({super.key, required this.selectedPos});
 
   @override
   Widget build(BuildContext context) {

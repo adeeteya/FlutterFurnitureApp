@@ -12,7 +12,7 @@ class FavoriteListTile extends StatelessWidget {
   final Product product;
   final FavoritesController _favoritesController = Get.find();
   final CartController _cartController = Get.find();
-  FavoriteListTile({Key? key, required this.product}) : super(key: key);
+  FavoriteListTile({super.key, required this.product});
 
   void _productOnTap() {
     Get.to(

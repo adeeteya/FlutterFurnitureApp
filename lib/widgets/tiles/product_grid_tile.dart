@@ -11,8 +11,7 @@ class ProductGridTile extends StatelessWidget {
   final Product product;
   final bool heroMode;
   final CartController _cartController = Get.find();
-  ProductGridTile({Key? key, required this.product, this.heroMode = true})
-      : super(key: key);
+  ProductGridTile({super.key, required this.product, this.heroMode = true});
 
   void _productOnTap() {
     Get.to(

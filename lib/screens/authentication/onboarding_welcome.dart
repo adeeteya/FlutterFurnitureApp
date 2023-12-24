@@ -4,7 +4,7 @@ import 'package:timberr/constants.dart';
 import 'package:timberr/screens/authentication/login_screen.dart';
 
 class OnBoardingWelcomeScreen extends StatelessWidget {
-  const OnBoardingWelcomeScreen({Key? key}) : super(key: key);
+  const OnBoardingWelcomeScreen({super.key});
 
   void _toLoginScreen() {
     Get.to(
@@ -71,7 +71,7 @@ class OnBoardingWelcomeScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: _toLoginScreen,
                 style: ElevatedButton.styleFrom(
-                  primary: kLeadBlack,
+                  backgroundColor: kLeadBlack,
                   shadowColor: kOffBlack,
                   elevation: 4,
                   shape: RoundedRectangleBorder(

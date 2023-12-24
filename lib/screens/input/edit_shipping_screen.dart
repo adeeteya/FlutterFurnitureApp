@@ -14,8 +14,7 @@ class EditShippingScreen extends StatelessWidget {
   final AddressController _addressController = Get.find();
 
   EditShippingScreen(
-      {Key? key, required this.initialAddress, required this.index})
-      : super(key: key) {
+      {super.key, required this.initialAddress, required this.index}) {
     _addressController.name = initialAddress.name;
     _addressController.address = initialAddress.address;
     _addressController.pincode = initialAddress.pincode;
@@ -205,8 +204,7 @@ class EditShippingScreen extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: _deleteAddress,
                     style: OutlinedButton.styleFrom(
-                      primary: kOffBlack,
-                      side: const BorderSide(color: kFireOpal),
+                      foregroundColor: kOffBlack, side: const BorderSide(color: kFireOpal),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

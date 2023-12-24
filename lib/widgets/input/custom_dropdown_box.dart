@@ -9,14 +9,13 @@ class CustomDropdownBox extends StatefulWidget {
   final String? Function(dynamic val)? validator;
   final String? initialValue;
   const CustomDropdownBox(
-      {Key? key,
+      {super.key,
       required this.headerText,
       required this.hintText,
       required this.items,
       required this.onChanged,
       this.validator,
-      this.initialValue})
-      : super(key: key);
+      this.initialValue});
 
   @override
   State<CustomDropdownBox> createState() => _CustomDropdownBoxState();

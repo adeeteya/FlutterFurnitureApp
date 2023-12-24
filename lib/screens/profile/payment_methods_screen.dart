@@ -6,7 +6,7 @@ import 'package:timberr/screens/input/add_payment_screen.dart';
 import 'package:timberr/widgets/cards/payment_card_view.dart';
 
 class PaymentMethodsScreen extends StatelessWidget {
-  PaymentMethodsScreen({Key? key}) : super(key: key);
+  PaymentMethodsScreen({super.key});
   final CardDetailsController _cardDetailsController = Get.find();
   void _toAddPaymentScreen() {
     Get.to(

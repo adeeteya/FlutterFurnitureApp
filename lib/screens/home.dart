@@ -10,7 +10,7 @@ import 'package:timberr/widgets/tabbed/category_tab_bar.dart';
 import 'package:timberr/widgets/tiles/product_grid_tile.dart';
 
 class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+  Home({super.key});
   final HomeController _controller = Get.find();
   void _onCartTap() {
     Get.to(
@@ -68,7 +68,9 @@ class Home extends StatelessWidget {
                   ),
                 )
               ],
-              bottom: CategoryTabBar(),
+              bottom: PreferredSize(
+                  preferredSize: const Size(double.infinity, 65),
+                  child: CategoryTabBar()),
               floating: true,
               snap: true,
             ),

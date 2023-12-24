@@ -6,7 +6,7 @@ import 'package:timberr/controllers/product_page_controller.dart';
 class ColorSelectionColumn extends StatelessWidget {
   final List<Color> colorsList;
   final ProductPageController _controller = Get.find();
-  ColorSelectionColumn({Key? key, required this.colorsList}) : super(key: key);
+  ColorSelectionColumn({super.key, required this.colorsList});
 
   @override
   Widget build(BuildContext context) {

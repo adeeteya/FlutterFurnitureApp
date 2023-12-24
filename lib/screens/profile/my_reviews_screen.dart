@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:timberr/constants.dart';
 
 class MyReviewsScreen extends StatelessWidget {
-  const MyReviewsScreen({Key? key}) : super(key: key);
+  const MyReviewsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

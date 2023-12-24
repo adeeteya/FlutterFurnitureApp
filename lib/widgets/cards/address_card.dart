@@ -10,11 +10,10 @@ class AddressCard extends StatelessWidget {
   final int index;
   final bool isEditable;
   const AddressCard(
-      {Key? key,
+      {super.key,
       this.isEditable = true,
       required this.address,
-      required this.index})
-      : super(key: key);
+      required this.index});
 
   void _onEditTap() {
     Get.to(

@@ -6,8 +6,7 @@ class SettingsTextBox extends StatelessWidget {
   final String value;
 
   const SettingsTextBox(
-      {Key? key, required this.fieldName, required this.value})
-      : super(key: key);
+      {super.key, required this.fieldName, required this.value});
 
   @override
   Widget build(BuildContext context) {

@@ -4,12 +4,9 @@ import 'package:timberr/controllers/home_controller.dart';
 import 'package:timberr/models/category.dart';
 import 'package:timberr/widgets/buttons/category_button.dart';
 
-class CategoryTabBar extends StatelessWidget with PreferredSizeWidget {
-  CategoryTabBar({Key? key}) : super(key: key);
+class CategoryTabBar extends StatelessWidget {
+  CategoryTabBar({super.key});
   final HomeController _controller = Get.find();
-
-  @override
-  Size get preferredSize => const Size(double.infinity, 65);
 
   @override
   Widget build(BuildContext context) {

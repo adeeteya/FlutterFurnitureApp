@@ -6,7 +6,7 @@ import 'package:timberr/widgets/buttons/custom_elevated_button.dart';
 import 'package:timberr/widgets/input/custom_input_box.dart';
 
 class EditPersonalInformationScreen extends StatefulWidget {
-  const EditPersonalInformationScreen({Key? key}) : super(key: key);
+  const EditPersonalInformationScreen({super.key});
 
   @override
   State<EditPersonalInformationScreen> createState() =>
@@ -99,8 +99,7 @@ class _EditPersonalInformationScreenState
                     Get.back();
                   },
                   style: OutlinedButton.styleFrom(
-                    primary: kOffBlack,
-                    side: const BorderSide(color: kFireOpal),
+                    foregroundColor: kOffBlack, side: const BorderSide(color: kFireOpal),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

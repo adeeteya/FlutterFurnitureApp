@@ -15,7 +15,7 @@ import 'package:timberr/widgets/tabbed/bottom_navbar.dart';
 import 'package:timberr/widgets/tiles/profile_tile.dart';
 
 class ProfileScreen extends StatelessWidget {
-  ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({super.key});
   final UserController _userController = Get.find();
   final CardDetailsController _cardDetailsController = Get.find();
   void _toSettingsScreen() {

@@ -6,11 +6,10 @@ class NotificationTile extends StatelessWidget {
   final String description;
   final bool isNew;
   const NotificationTile(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.description,
-      required this.isNew})
-      : super(key: key);
+      required this.isNew});
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import 'package:timberr/widgets/tiles/settings_row_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatelessWidget {
-  SettingsScreen({Key? key}) : super(key: key);
+  SettingsScreen({super.key});
   final UserController _userController = Get.find();
   void _toEditPersonalInfoScreen() {
     Get.to(

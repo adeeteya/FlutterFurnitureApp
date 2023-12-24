@@ -8,12 +8,11 @@ class CategoryButton extends StatelessWidget {
   final bool isSelected;
   final void Function() onTap;
   const CategoryButton(
-      {Key? key,
+      {super.key,
       required this.iconPath,
       required this.name,
       this.isSelected = false,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {

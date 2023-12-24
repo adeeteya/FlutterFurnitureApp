@@ -10,7 +10,7 @@ import 'package:timberr/widgets/tabbed/bottom_navbar.dart';
 import 'package:timberr/widgets/tiles/favorite_list_tile.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  FavoriteScreen({Key? key}) : super(key: key);
+  FavoriteScreen({super.key});
   final FavoritesController _favoritesController = Get.find();
   final CartController _cartController = Get.find();
   void _onCartTap() {
@@ -100,9 +100,8 @@ class FavoriteScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: _addAllToCart,
                     style: ElevatedButton.styleFrom(
-                      elevation: 8,
+                      elevation: 8, backgroundColor: kOffBlack,
                       minimumSize: const Size(50, 50),
-                      primary: kOffBlack,
                       shadowColor: kOffBlack,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

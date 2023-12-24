@@ -5,8 +5,7 @@ class SettingRowTile extends StatelessWidget {
   final String fieldName;
   final Widget action;
   const SettingRowTile(
-      {Key? key, required this.fieldName, required this.action})
-      : super(key: key);
+      {super.key, required this.fieldName, required this.action});
 
   @override
   Widget build(BuildContext context) {

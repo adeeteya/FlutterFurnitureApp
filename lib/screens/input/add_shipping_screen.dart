@@ -7,7 +7,7 @@ import 'package:timberr/widgets/input/custom_dropdown_box.dart';
 import 'package:timberr/widgets/input/custom_input_box.dart';
 
 class AddShippingScreen extends StatelessWidget {
-  AddShippingScreen({Key? key}) : super(key: key);
+  AddShippingScreen({super.key});
   final _formKey = GlobalKey<FormState>();
   final AddressController _addressController = Get.find();
 

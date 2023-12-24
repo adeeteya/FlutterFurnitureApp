@@ -12,7 +12,7 @@ import 'package:timberr/widgets/cards/address_card.dart';
 
 class CheckOutScreen extends StatelessWidget {
   final int orderAmount;
-  CheckOutScreen({Key? key, required this.orderAmount}) : super(key: key);
+  CheckOutScreen({super.key, required this.orderAmount});
   final AddressController _addressController = Get.find();
   final CardDetailsController _cardDetailController = Get.find();
   final _paymentController = Get.put(PaymentController());
@@ -249,9 +249,9 @@ class CheckOutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
                         "Delivery:",
                         style: kNunitoSansTinGrey18,

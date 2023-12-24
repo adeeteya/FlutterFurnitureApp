@@ -6,7 +6,7 @@ import 'package:timberr/screens/input/add_shipping_screen.dart';
 import 'package:timberr/widgets/cards/address_card.dart';
 
 class ShippingAddressScreen extends StatelessWidget {
-  const ShippingAddressScreen({Key? key}) : super(key: key);
+  const ShippingAddressScreen({super.key});
 
   void _addOnTap() {
     Get.to(

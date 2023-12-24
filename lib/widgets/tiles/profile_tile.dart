@@ -6,11 +6,10 @@ class ProfileTile extends StatelessWidget {
   final String description;
   final VoidCallback onTap;
   const ProfileTile(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.description,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
