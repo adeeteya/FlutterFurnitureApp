@@ -37,60 +37,60 @@ Timberr is a fully functional Furniture App Clone Developed using Flutter, Supab
 
 <details>
 <summary><b>Authentication</b></summary>
-<img alt="Register" loading="lazy" src="https://thumbs.gfycat.com/ThriftyFemaleCutworm-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Register" loading="lazy" src="images/register.gif" height="587px" width="256px"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Login" loading="lazy" src="https://thumbs.gfycat.com/WhoppingBarrenDugong-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Login" loading="lazy" src="images/login.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Cart</b></summary>
-<img alt="Cart" loading="lazy" src="https://thumbs.gfycat.com/UnselfishThisIrishwolfhound-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Add to Cart" loading="lazy" src="images/add_to_cart.gif" height="587px" width="256px"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Cart Updation" loading="lazy" src="https://thumbs.gfycat.com/KlutzyCloudyAchillestang-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Cart Updation" loading="lazy" src="images/cart_updation.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Favorites</b></summary>
-<img alt="Favorites" loading="lazy" src="https://thumbs.gfycat.com/ParallelDefensiveAnhinga-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Favorites" loading="lazy" src="images/favorites.gif" height="587px" width="256px"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Favorites Search" loading="lazy" src="https://thumbs.gfycat.com/CrispSmugAllensbigearedbat-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Favorites Search" loading="lazy" src="images/favorites_search.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Address</b></summary>
-<img alt="Address" loading="lazy" src="https://thumbs.gfycat.com/UntimelyVariableGermanwirehairedpointer-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Address" loading="lazy" src="images/address.gif" height="587px" width="256px"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Change Address" loading="lazy" src="https://thumbs.gfycat.com/EmbarrassedRegularGallinule-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Delete Address" loading="lazy" src="images/delete_address.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Searching and Filtering</b></summary>
-<img alt="Product Search" loading="lazy" src="https://thumbs.gfycat.com/TintedForthrightBagworm-size_restricted.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Filter" loading="lazy" src="https://thumbs.gfycat.com/EuphoricSickFireant-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Product Search" loading="lazy" src="images/product_search.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Filter" loading="lazy" src="images/filter.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Payment</b></summary>
-<img alt="Payment Method" loading="lazy" src="https://thumbs.gfycat.com/TautInsignificantGartersnake-size_restricted.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Payment" loading="lazy" src="https://thumbs.gfycat.com/DisastrousIndelibleAsiantrumpetfish-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Payment Method" loading="lazy" src="images/payment_method.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Payment" loading="lazy" src="images/payment.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Account Settings and Notifications</b></summary>
-<img alt="Change Account" loading="lazy" src="https://thumbs.gfycat.com/DemandingHarmoniousAfricanbushviper-size_restricted.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Notifications" loading="lazy" src="https://thumbs.gfycat.com/SmoggyWelldocumentedBull-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Change Account" loading="lazy" src="images/change_account_settings.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Notifications" loading="lazy" src="images/notification.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Reviews</b></summary>
-<img alt="My Reviews" loading="lazy" src="https://thumbs.gfycat.com/FirstDistantEft-size_restricted.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Product Reviews" loading="lazy" src="https://thumbs.gfycat.com/OrneryFloweryIndianspinyloach-size_restricted.gif" height="587px" width="256px"/>
+<img alt="My Reviews" loading="lazy" src="images/my_reviews.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Product Reviews" loading="lazy" src="images/product_review.gif" height="587px" width="256px"/>
 </details><br>
 
 <details>
 <summary><b>Orders and Sign-out</b></summary>
-<img alt="Orders" loading="lazy" src="https://thumbs.gfycat.com/VelvetyBoldElephantseal-size_restricted.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Sign out" loading="lazy" src="https://thumbs.gfycat.com/ImpeccableDifficultArcticwolf-size_restricted.gif" height="587px" width="256px"/>
+<img alt="Orders" loading="lazy" src="images/orders.gif" height="587px" width="256px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Sign out" loading="lazy" src="images/sign_out.gif" height="587px" width="256px"/>
 </details><br>
 
 ## 🔌 Plugins
