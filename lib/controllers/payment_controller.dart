@@ -16,7 +16,7 @@ class PaymentController extends GetxController {
     _razorpay.clear();
   }
 
-  void openCheckout(int orderAmount) async {
+  void openCheckout(int orderAmount) {
     _razorpay = Razorpay();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
@@ -43,8 +43,8 @@ class PaymentController extends GetxController {
     }
   }
 
-  void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    _cartController.removeAllFromCart();
+  Future<void> _handlePaymentSuccess(PaymentSuccessResponse response) async {
+    await _cartController.removeAllFromCart();
     Get.off(
       () => const OrderSuccessScreen(),
       transition: Transition.cupertino,

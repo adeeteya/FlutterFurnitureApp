@@ -65,8 +65,9 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: kOnExitConfirmation,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (_) => kOnExitConfirmation(),
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -90,7 +91,6 @@ class ProfileScreen extends StatelessWidget {
               },
               icon: SvgPicture.asset(
                 "assets/icons/logout_icon.svg",
-                color: kGraniteGrey,
               ),
             ),
           ],

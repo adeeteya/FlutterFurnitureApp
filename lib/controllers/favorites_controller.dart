@@ -6,47 +6,40 @@ class FavoritesController extends GetxController {
   var favoritesList = <Product>[].obs;
   final _supabaseClient = Supabase.instance.client;
 
-  Future fetchFavorites() async {
+  Future<void> fetchFavorites() async {
     final response = await _supabaseClient
         .from("Users")
         .select()
-        .eq("Uid", _supabaseClient.auth.currentUser?.id)
-        .execute();
-    List responseList = response.data[0]['favoritesList'];
+        .eq("Uid", _supabaseClient.auth.currentUser!.id);
+    List responseList = response[0]['favoritesList'];
     for (int i = 0; i < responseList.length; i++) {
       final productResponse = await _supabaseClient
           .from('Products')
           .select()
-          .eq("product_id", responseList[i])
-          .execute();
-      favoritesList.add(Product.fromJson(productResponse.data[0]));
+          .eq("product_id", responseList[i]);
+      favoritesList.add(Product.fromJson(productResponse[0]));
     }
   }
 
-  void updateDatabase() {
-    _supabaseClient
-        .from('Users')
-        .update({
-          'favoritesList': favoritesList
-              .map((favoriteItem) => favoriteItem.productId)
-              .toList()
-        })
-        .eq("Uid", _supabaseClient.auth.currentUser?.id)
-        .execute();
+  Future<void> updateDatabase() async {
+    await _supabaseClient.from('Users').update({
+      'favoritesList':
+          favoritesList.map((favoriteItem) => favoriteItem.productId).toList()
+    }).eq("Uid", _supabaseClient.auth.currentUser!.id);
   }
 
-  void addProduct(Product product) {
+  Future<void> addProduct(Product product) async {
     favoritesList.add(product);
-    updateDatabase();
+    await updateDatabase();
   }
 
-  void removeProduct(Product product) {
+  Future<void> removeProduct(Product product) async {
     favoritesList.remove(product);
-    updateDatabase();
+    await updateDatabase();
   }
 
-  void removeProductAt(int index) {
+  Future<void> removeProductAt(int index) async {
     favoritesList.removeAt(index);
-    updateDatabase();
+    await updateDatabase();
   }
 }

@@ -204,7 +204,8 @@ class EditShippingScreen extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: _deleteAddress,
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: kOffBlack, side: const BorderSide(color: kFireOpal),
+                      foregroundColor: kOffBlack,
+                      side: const BorderSide(color: kFireOpal),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

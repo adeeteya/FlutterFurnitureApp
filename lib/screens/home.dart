@@ -21,8 +21,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: kOnExitConfirmation,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (_) => kOnExitConfirmation(),
       child: Scaffold(
         bottomNavigationBar: const BottomNavBar(
           selectedPos: 0,
@@ -37,8 +38,7 @@ class Home extends StatelessWidget {
                       context: context, delegate: ProductSearchDelegate());
                 },
                 icon: SvgPicture.asset(
-                  'assets/icons/search_icon.svg',
-                  color: kGrey,
+                  'assets/icons/search_icon_grey.svg',
                 ),
               ),
               title: Column(
@@ -63,8 +63,7 @@ class Home extends StatelessWidget {
                 IconButton(
                   onPressed: _onCartTap,
                   icon: SvgPicture.asset(
-                    'assets/icons/cart_icon.svg',
-                    color: kGrey,
+                    'assets/icons/cart_icon_grey.svg',
                   ),
                 )
               ],

@@ -10,26 +10,24 @@ class CartController extends GetxController {
   var cartList = <CartItem>{}.obs;
   var total = 0.obs;
   final _supabaseClient = Supabase.instance.client;
-  Future fetchCartItems() async {
+
+  Future<void> fetchCartItems() async {
     final response = await _supabaseClient
         .from('Users')
         .select()
-        .eq("Uid", _supabaseClient.auth.currentUser?.id)
-        .execute();
-    cartIdList = response.data[0]['cartList'];
+        .eq("Uid", _supabaseClient.auth.currentUser!.id);
+    cartIdList = response[0]['cartList'];
     for (int i = 0; i < cartIdList.length; i++) {
       final cartResponse = await _supabaseClient
           .from('Cart_Items')
           .select()
-          .eq("cart_id", cartIdList[i])
-          .execute();
+          .eq("cart_id", cartIdList[i]);
       final productResponse = await _supabaseClient
           .from('Products')
           .select()
-          .eq("product_id", cartResponse.data[0]['product_id'])
-          .execute();
-      cartList.add(CartItem(cartIdList[i], cartResponse.data[0]['quantity'],
-          cartResponse.data[0]['color'], productResponse.data[0]));
+          .eq("product_id", cartResponse[0]['product_id']);
+      cartList.add(CartItem(cartIdList[i], cartResponse[0]['quantity'],
+          cartResponse[0]['color'], productResponse[0]));
       total.value = total.value +
           (cartList.elementAt(i).quantity * cartList.elementAt(i).price);
     }
@@ -45,7 +43,7 @@ class CartController extends GetxController {
     return -1;
   }
 
-  Future addToCart(Product product, Color color,
+  Future<void> addToCart(Product product, Color color,
       {int quantity = 1, bool showSnackbar = true}) async {
     int index = findProduct(product, color);
     if (index != -1) {
@@ -55,9 +53,8 @@ class CartController extends GetxController {
       //update quantity in database
       await _supabaseClient
           .from('Cart_Items')
-          .update({'quantity': cartList.elementAt(index).quantity})
-          .eq("cart_id", cartList.elementAt(index).cartId)
-          .execute();
+          .update({'quantity': cartList.elementAt(index).quantity}).eq(
+              "cart_id", cartList.elementAt(index).cartId);
     } else {
       //product not there in cart
       //add item to cart_items database
@@ -67,25 +64,20 @@ class CartController extends GetxController {
           'quantity': quantity,
           'color': colorToString(color),
         }
-      ]).execute();
+      ]).select();
       cartList.add(
         CartItem(
-          insertData.data[0]['cart_id'],
+          insertData[0]['cart_id'],
           quantity,
-          insertData.data[0]['color'],
+          insertData[0]['color'],
           product.toJson(),
         ),
       );
       total.value = total.value + (quantity * product.price);
       //set cart_id in user cartlist
-      cartIdList.add(insertData.data[0]['cart_id']);
-      _supabaseClient
-          .from('Users')
-          .update({
-            'cartList': cartIdList,
-          })
-          .eq("Uid", _supabaseClient.auth.currentUser?.id)
-          .execute();
+      cartIdList.add(insertData[0]['cart_id']);
+      await _supabaseClient.from('Users').update({'cartList': cartIdList}).eq(
+          "Uid", _supabaseClient.auth.currentUser!.id);
     }
     if (showSnackbar) {
       Get.snackbar(
@@ -94,7 +86,7 @@ class CartController extends GetxController {
         onTap: (_) {
           Get.closeCurrentSnackbar();
           Get.to(
-            CartScreen(),
+            () => CartScreen(),
             transition: Transition.fadeIn,
             duration: const Duration(milliseconds: 600),
           );
@@ -103,24 +95,19 @@ class CartController extends GetxController {
     }
   }
 
-  Future removeFromCart(CartItem item) async {
+  Future<void> removeFromCart(CartItem item) async {
     cartList.remove(item);
     cartIdList.remove(item.cartId);
     total.value = total.value - (item.quantity * item.price);
     //remove cart_id from user cart list
-    _supabaseClient
-        .from('Users')
-        .update({
-          'cartList': cartIdList,
-        })
-        .eq("Uid", _supabaseClient.auth.currentUser?.id)
-        .execute();
+    await _supabaseClient.from('Users').update({
+      'cartList': cartIdList,
+    }).eq("Uid", _supabaseClient.auth.currentUser!.id);
     //remove item from cart_items database
     await _supabaseClient
         .from('Cart_Items')
-        .delete(returning: ReturningOption.minimal)
-        .eq("cart_id", item.cartId)
-        .execute();
+        .delete()
+        .eq("cart_id", item.cartId);
   }
 
   Future incrementQuantity(CartItem item) async {
@@ -128,45 +115,36 @@ class CartController extends GetxController {
     total.value = total.value + item.price;
     await _supabaseClient
         .from('Cart_Items')
-        .update({'quantity': item.quantity})
-        .eq("cart_id", item.cartId)
-        .execute();
+        .update({'quantity': item.quantity}).eq("cart_id", item.cartId);
     update();
   }
 
   Future decrementQuantity(CartItem item) async {
     if (item.quantity == 1) {
-      removeFromCart(item);
+      await removeFromCart(item);
     } else {
       item.removeQuantity(1);
       await _supabaseClient
           .from('Cart_Items')
-          .update({'quantity': item.quantity})
-          .eq("cart_id", item.cartId)
-          .execute();
+          .update({'quantity': item.quantity}).eq("cart_id", item.cartId);
       total.value = total.value - item.price;
       update();
     }
   }
 
-  Future removeAllFromCart() async {
+  Future<void> removeAllFromCart() async {
     cartList.clear();
     //delete each cart entry from the database
     for (int i = 0; i < cartIdList.length; i++) {
       await _supabaseClient
           .from('Cart_Items')
-          .delete(returning: ReturningOption.minimal)
-          .eq("cart_id", cartIdList.elementAt(i))
-          .execute();
+          .delete()
+          .eq("cart_id", cartIdList.elementAt(i));
     }
     cartIdList.clear();
     //remove all the elements from the user cart
-    await _supabaseClient
-        .from('Users')
-        .update({
-          'cartList': [],
-        })
-        .eq("Uid", _supabaseClient.auth.currentUser?.id)
-        .execute();
+    await _supabaseClient.from('Users').update({
+      'cartList': [],
+    }).eq("Uid", _supabaseClient.auth.currentUser!.id);
   }
 }

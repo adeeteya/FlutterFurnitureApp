@@ -18,33 +18,26 @@ class CardDetailsController extends GetxController {
     return "XXXX";
   }
 
-  Future fetchCardDetails() async {
+  Future<void> fetchCardDetails() async {
     //fetch Card Details
-    final response = await _supabaseClient
-        .from("Card_Details")
-        .select()
-        .eq(
+    final response = await _supabaseClient.from("Card_Details").select().eq(
           "user_id",
-          _supabaseClient.auth.user()?.id,
-        )
-        .execute();
-    final responseList = response.data as List;
+          _supabaseClient.auth.currentUser!.id,
+        );
+    final responseList = response;
     for (int i = 0; i < responseList.length; i++) {
       cardDetailList.add(CardDetail.fromJson(responseList[i]));
     }
   }
 
-  Future getDefaultCardDetail() async {
+  Future<void> getDefaultCardDetail() async {
     //get default card detail
-    final defaultShippingResponse = await _supabaseClient
-        .from("Users")
-        .select('default_card_detail_id')
-        .eq(
-          "Uid",
-          _supabaseClient.auth.user()?.id,
-        )
-        .execute();
-    int? responseId = defaultShippingResponse.data[0]['default_card_detail_id'];
+    final defaultShippingResponse =
+        await _supabaseClient.from("Users").select('default_card_detail_id').eq(
+              "Uid",
+              _supabaseClient.auth.currentUser!.id,
+            );
+    int? responseId = defaultShippingResponse[0]['default_card_detail_id'];
     await fetchCardDetails();
     if (responseId != null) {
       for (int i = 0; i < cardDetailList.length; i++) {
@@ -56,18 +49,15 @@ class CardDetailsController extends GetxController {
     }
   }
 
-  Future setDefaultCardDetail(int index) async {
+  Future<void> setDefaultCardDetail(int index) async {
     if (selectedIndex.value == index) {
       return;
     }
     selectedIndex.value = index;
-    await _supabaseClient
-        .from("Users")
-        .update({'default_card_detail_id': cardDetailList.elementAt(index).id})
-        .eq(
-          "Uid",
-          _supabaseClient.auth.user()?.id,
-        )
-        .execute();
+    await _supabaseClient.from("Users").update(
+        {'default_card_detail_id': cardDetailList.elementAt(index).id}).eq(
+      "Uid",
+      _supabaseClient.auth.currentUser!.id,
+    );
   }
 }

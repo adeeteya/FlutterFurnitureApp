@@ -224,12 +224,11 @@ class ProductScreen extends StatelessWidget {
                             ),
                             child: SvgPicture.asset(
                               (index == -1)
-                                  ? 'assets/icons/favorite_icon.svg'
+                                  ? 'assets/icons/favorite_icon_black.svg'
                                   : 'assets/icons/favorite_selected_icon.svg',
                               height: 24,
                               width: 24,
                               fit: BoxFit.scaleDown,
-                              color: kOffBlack,
                             ),
                           ),
                         );

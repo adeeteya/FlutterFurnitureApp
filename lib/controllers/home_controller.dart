@@ -7,21 +7,20 @@ class HomeController extends GetxController {
   var selectedCategory = 0.obs;
   var productsList = <Product>[].obs;
 
-  void changeCategory(int categoryId) {
+  Future<void> changeCategory(int categoryId) async {
     if (selectedCategory.value == categoryId) return;
     selectedCategory.value = categoryId;
-    getProducts(categoryId);
+    await getProducts(categoryId);
   }
 
-  Future getProducts(int categoryId) async {
+  Future<void> getProducts(int categoryId) async {
     final response = (categoryId == 0)
-        ? await _supabaseInstance.client.from('Products').select().execute()
+        ? await _supabaseInstance.client.from('Products').select()
         : await _supabaseInstance.client
             .from('Products')
             .select()
-            .eq('categoryId', categoryId)
-            .execute();
-    List responseList = response.data;
+            .eq('categoryId', categoryId);
+    List responseList = response;
     productsList.value = responseList
         .map((productResponse) => Product.fromJson(productResponse))
         .toList();

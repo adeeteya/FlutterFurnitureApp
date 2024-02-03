@@ -109,10 +109,9 @@ class FavoriteListTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: SvgPicture.asset(
-                    "assets/icons/shopping_bag_icon.svg",
+                    "assets/icons/shopping_bag_icon_black.svg",
                     height: 16,
                     width: 16,
-                    color: kOffBlack,
                   ),
                 ),
               ),

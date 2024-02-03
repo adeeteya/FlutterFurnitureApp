@@ -4,50 +4,45 @@ import 'package:timberr/constants.dart';
 import 'package:timberr/wrapper.dart';
 
 class AuthController extends GetxController {
-  final _authController = Supabase.instance;
-  User? get user => _authController.client.auth.currentUser;
+  final _supabaseInstance = Supabase.instance.client;
+  User? get user => _supabaseInstance.auth.currentUser;
 
   Future signIn(String email, String password) async {
-    final response = await _authController.client.auth
-        .signIn(email: email, password: password);
-    if (response.error != null) {
-      kDefaultDialog(
-          "Error", response.error?.message ?? 'Some Unknown Error occurred');
-    } else {
+    try {
+      await _supabaseInstance.auth
+          .signInWithPassword(email: email, password: password);
       // Sign in with success
       Get.offAll(() => const Wrapper());
+    } on AuthException catch (error) {
+      kDefaultDialog("Error", error.message);
+    } catch (error) {
+      kDefaultDialog("Error", 'Some Unknown Error occurred');
     }
   }
 
   Future signUp(String name, String email, String password) async {
-    final response = await _authController.client.auth.signUp(email, password);
-    if (response.error != null &&
-        response.error!.message !=
-            'Thanks for registering, now check your email to complete the process.') {
-      // Handle error
-      kDefaultDialog(
-        "Error",
-        response.error?.message ?? 'Some Unknown Error occurred',
-      );
-    } else {
-      // check is session is null(user already exists) else sign in
-      if (response.data == null) {
-        kDefaultDialog("Error", "User already Exists");
-      } else {
-        _authController.client.from('Users').insert({
+    try {
+      final response =
+          await _supabaseInstance.auth.signUp(password: password, email: email);
+      if (response.session != null) {
+        await _supabaseInstance.from('Users').insert({
           'Name': name,
           'Email': email,
-          'Uid': response.user!.id,
+          'Uid': response.session?.user.id,
           'favoritesList': [],
           'cartList': [],
-        }).execute();
+        });
         Get.offAll(() => const Wrapper());
       }
+    } on AuthException catch (error) {
+      kDefaultDialog("Error", error.message);
+    } catch (error) {
+      kDefaultDialog("Error", 'Some Unknown Error occurred');
     }
   }
 
   Future forgotPassword(String email) async {
-    await _authController.client.auth.api.resetPasswordForEmail(email);
+    await _supabaseInstance.auth.resetPasswordForEmail(email);
     Get.snackbar("Password reset",
         "Password reset request has been sent to your email successfully.");
   }

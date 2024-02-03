@@ -18,34 +18,21 @@ class Wrapper extends StatefulWidget {
   State<Wrapper> createState() => _WrapperState();
 }
 
-class _WrapperState extends AuthState<Wrapper> {
+class _WrapperState extends State<Wrapper> {
   @override
   void initState() {
-    recoverSupabaseSession();
     super.initState();
+    _redirect();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(color: kOffBlack),
-      ),
-    );
-  }
-}
-
-class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
-  @override
-  void onUnauthenticated() {
-    if (mounted) {
-      Get.off(() => const OnBoardingWelcomeScreen());
+  Future<void> _redirect() async {
+    await Future.delayed(Duration.zero);
+    if (!mounted) {
+      return;
     }
-  }
 
-  @override
-  void onAuthenticated(Session session) {
-    if (mounted) {
+    final session = Supabase.instance.client.auth.currentSession;
+    if (session != null) {
       Get.put(HomeController());
       Get.put(FavoritesController());
       Get.put(CartController());
@@ -53,14 +40,15 @@ class AuthState<T extends StatefulWidget> extends SupabaseAuthState<T> {
       Get.put(AddressController());
       Get.put(CardDetailsController());
       Get.to(() => SplashScreen(), transition: Transition.fadeIn);
+    } else {
+      Get.off(() => const OnBoardingWelcomeScreen());
     }
   }
 
   @override
-  void onPasswordRecovery(Session session) {}
-
-  @override
-  void onErrorAuthenticating(String message) {
-    kDefaultDialog("Error", message);
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(child: CircularProgressIndicator(color: kOffBlack)),
+    );
   }
 }

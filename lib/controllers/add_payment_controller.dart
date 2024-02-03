@@ -11,29 +11,27 @@ class AddPaymentController extends GetxController {
   final _supabaseClient = Supabase.instance.client;
   final CardDetailsController _cardDetailsController = Get.find();
 
-  Future addCardDetail() async {
+  Future<void> addCardDetail() async {
     final insertData = await _supabaseClient.from("Card_Details").insert({
       "cardholder_name": name.value,
       "card_number": cardNumber,
       "month": month,
       "year": year,
-      "user_id": _supabaseClient.auth.user()?.id
-    }).execute();
+      "user_id": _supabaseClient.auth.currentUser!.id
+    }).select();
     if (_cardDetailsController.cardDetailList.isEmpty) {
       _cardDetailsController.selectedIndex.value = 0;
-      //set default user Address Id in the database
+      //set default user Card Id in the database
       await _supabaseClient
           .from("Users")
-          .update({'default_card_detail_id': insertData.data[0]})
-          .eq(
-            "Uid",
-            _supabaseClient.auth.user()?.id,
-          )
-          .execute();
+          .update({'default_card_detail_id': insertData[0]['id']}).eq(
+        "Uid",
+        _supabaseClient.auth.currentUser!.id,
+      );
     }
     _cardDetailsController.cardDetailList.add(
       CardDetail(
-        id: insertData.data[0]['id'],
+        id: insertData[0]['id'],
         name: name.value,
         cardNumber: cardNumber,
         month: month,

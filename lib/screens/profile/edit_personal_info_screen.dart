@@ -99,7 +99,8 @@ class _EditPersonalInformationScreenState
                     Get.back();
                   },
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: kOffBlack, side: const BorderSide(color: kFireOpal),
+                    foregroundColor: kOffBlack,
+                    side: const BorderSide(color: kFireOpal),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

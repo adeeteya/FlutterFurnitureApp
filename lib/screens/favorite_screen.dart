@@ -33,7 +33,7 @@ class FavoriteScreen extends StatelessWidget {
       onTap: (_) {
         Get.closeCurrentSnackbar();
         Get.to(
-          CartScreen(),
+          () => CartScreen(),
           transition: Transition.fadeIn,
           duration: const Duration(milliseconds: 600),
         );
@@ -43,8 +43,9 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: kOnExitConfirmation,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (_) => kOnExitConfirmation(),
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -100,7 +101,8 @@ class FavoriteScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: _addAllToCart,
                     style: ElevatedButton.styleFrom(
-                      elevation: 8, backgroundColor: kOffBlack,
+                      elevation: 8,
+                      backgroundColor: kOffBlack,
                       minimumSize: const Size(50, 50),
                       shadowColor: kOffBlack,
                       shape: RoundedRectangleBorder(

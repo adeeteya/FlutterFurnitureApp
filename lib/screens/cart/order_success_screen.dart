@@ -26,8 +26,9 @@ class OrderSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (_) => kOnExitConfirmation(),
       child: Scaffold(
         body: Center(
           child: Padding(
@@ -86,7 +87,8 @@ class OrderSuccessScreen extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: _offToHome,
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: kOffBlack, side: const BorderSide(color: kOffBlack),
+                      foregroundColor: kOffBlack,
+                      side: const BorderSide(color: kOffBlack),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

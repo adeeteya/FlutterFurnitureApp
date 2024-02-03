@@ -26,6 +26,7 @@ class TimberrApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: false,
         fontFamily: "NunitoSans",
         appBarTheme: const AppBarTheme(color: Colors.white, elevation: 0),
         scaffoldBackgroundColor: Colors.white,

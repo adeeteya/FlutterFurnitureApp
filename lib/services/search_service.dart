@@ -6,9 +6,8 @@ class SearchService {
     final response = await _supabaseClient
         .from('Products')
         .select()
-        .textSearch("name", "'$query'")
-        .execute();
-    List responseList = response.data;
+        .textSearch("name", "'$query'");
+    List responseList = response;
     return responseList;
   }
 }
