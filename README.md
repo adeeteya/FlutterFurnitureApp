@@ -28,9 +28,9 @@ This app is based on this [UI Design](https://www.figma.com/file/dTdGEtZoQd2uRZc
 
 ## 💻 Installation links
 
-[![Download Android Apk](https://img.shields.io/badge/Download-Android%20Apk-green)](https://github.com/adityar224/FlutterFurnitureApp/releases/download/2.0.0/timberr-2.0.0.apk)
+[![Download Android Apk](https://img.shields.io/badge/Download-Android%20Apk-green)](https://github.com/adeeteya/FlutterFurnitureApp/releases/download/2.0.0/timberr-2.0.0.apk)
 
-[![Download iOS ipa](https://img.shields.io/badge/Download-iOS%20App-black)](https://github.com/adityar224/FlutterFurnitureApp/releases/download/1.0.0/timberr-1.0.0.ipa)
+[![Download iOS ipa](https://img.shields.io/badge/Download-iOS%20App-black)](https://github.com/adeeteya/FlutterFurnitureApp/releases/download/1.0.0/timberr-1.0.0.ipa)
 
 ## 📸 Screen Recordings
 
@@ -133,8 +133,8 @@ This app is based on this [UI Design](https://www.figma.com/file/dTdGEtZoQd2uRZc
 
 ## 🤓 Author
 
-**[Aditya R](https://github.com/adityar224)**
+**[Aditya R](https://github.com/adeeteya)**
 
 ## 🔖 LICENCE
 Copyright (c) 2022 Aditya R
-[MIT LICENCE](https://github.com/adityar224/FlutterFurnitureApp/blob/master/LICENSE)
+[MIT LICENCE](https://github.com/adeeteya/FlutterFurnitureApp/blob/master/LICENSE)
